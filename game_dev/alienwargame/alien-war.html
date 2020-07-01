@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<canvas style="margin-top: 30px; display: block;padding-left: 0; padding-right: 0; margin-left: auto;margin-right: auto;" id="myCanvas" width="520" height="520">
+	</canvas>
+	<script type="text/javascript">
+		var canvas = document.getElementById('myCanvas');
+		var ctx = canvas.getContext("2d");
+
+		function drawObject(object){
+			var currentImageIndex = counter%object.images.length;
+			var currentImage = object.images[currentImageIndex];
+			ctx.drawImage(currentImage, object.x, object.y, object.width, object.height);
+		}
+
+		var alienImages = [];
+		var alienImageUrls = ["https://i.imgur.com/tvJOu59.png","https://i.imgur.com/e1pkJRF.png","https://i.imgur.com/aRumf1r.png","https://i.imgur.com/jjOPpWL.png","https://i.imgur.com/hsdEpsM.png","https://i.imgur.com/u5eNyl8.png"];
+
+		for (var i = 0; i < alienImageUrls.length ; i++){
+			var image = new Image();
+			image.src = alienImageUrls[i];
+			alienImages.push(image);
+		}
+
+		var alien = {};
+		alien.images = alienImages;
+		alien.width = 100;
+		alien.height = 100;
+		alien.x = 300;
+		alien.y = 300;
+		alien.speed = 7;
+		
+	</script>
+</body>
+</html>
